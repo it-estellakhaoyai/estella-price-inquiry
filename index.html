@@ -1,1 +1,27 @@
-<--! use for redirect only --->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Request no caching -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>Redirecting...</title>
+
+  <script>
+    const target = "https://script.google.com/macros/s/AKfycbwFzOX4w5aKYhItq9nPfFXJOLnp2UJQuVzhf3fApupdamK_jLcjm6WsnUXPwy-TlN4xdw/exec";
+
+    const url = new URL(target);
+    url.searchParams.set("_nocache", Date.now());
+
+    window.location.replace(url.href);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
