@@ -1,27 +1,189 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Request no caching -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <img src="qrcode1.png"></img>
-  <title>Redirecting...</title>
+
+  <title>Price Inquiry | Estella Khao Yai</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #f7f7f7;
+      color: #171717;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      padding: 36px 28px;
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .description {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #777;
+    }
+
+    .qr {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      display: block;
+      margin: 30px auto 12px;
+    }
+
+    .scan-text {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #171717;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .button:hover {
+      background: #444;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #777;
+      outline-offset: 4px;
+    }
+
+    .divider {
+      margin: 25px 0 18px;
+      border: 0;
+      border-top: 1px solid #eee;
+    }
+
+    .url-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .url {
+      display: block;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #555;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="label">ESTELLA KHAO YAI</div>
+
+    <h1>แบบฟอร์มขอสืบราคา</h1>
+
+    <p class="description">
+      สแกน QR Code หรือคลิกปุ่มด้านล่าง<br>
+      เพื่อเข้าสู่แบบฟอร์มขอสืบราคา
+    </p>
+
+    <img
+      class="qr"
+      src="qrcode1.png"
+      alt="QR Code สำหรับเข้าสู่แบบฟอร์มขอสืบราคา"
+    >
+
+    <p class="scan-text">SCAN TO OPEN FORM</p>
+
+    <a
+      id="openForm"
+      class="button"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      เปิดแบบฟอร์มขอสืบราคา
+    </a>
+
+    <hr class="divider">
+
+    <p class="url-label">หรือเข้าใช้งานผ่านลิงก์โดยตรง</p>
+
+    <a
+      id="directLink"
+      class="url"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+    ></a>
+
+    <div class="footer">
+      ESTELLA KHAO YAI · IT DEPARTMENT
+    </div>
+  </main>
 
   <script>
-    const target = "https://script.google.com/macros/s/AKfycbwFzOX4w5aKYhItq9nPfFXJOLnp2UJQuVzhf3fApupdamK_jLcjm6WsnUXPwy-TlN4xdw/exec";
+    const target =
+      "https://script.google.com/macros/s/AKfycbz2e_7f1BzQPgIawaRsT8aPWMqOi2vw7E8FolqsrURw-QaahAo-QUVpo8BEpDX4_oamPA/exec";
 
     const url = new URL(target);
     url.searchParams.set("_nocache", Date.now());
 
-    window.location.replace(url.href);
+    document.getElementById("openForm").href = url.href;
+
+    const directLink = document.getElementById("directLink");
+    directLink.href = url.href;
+    directLink.textContent = target;
   </script>
-</head>
-<body>
-  <p>Redirecting...</p>
 </body>
 </html>
